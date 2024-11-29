@@ -37,6 +37,7 @@ let formdata = {
      $('cart-drawer').removeClass('is-empty');
       $('.drawer__inner-empty').hide();
      $('cart-drawer').load(location.href + " #CartDrawer");
+      $('#cart-icon-bubble').load(location.href + " #CartDrawer");
    },
    error: function(xhr, status, error) {
      // Handle errors here
