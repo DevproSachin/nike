@@ -1,44 +1,43 @@
- <div class="add_to_cart">
-     {% for variant in product.variants %}
-        <input type ="hidden" id="getvariantid" value={{ variant.id }}>
-        {% endfor %}
-       <button type="button" name="btn" id="collection-cart-{{ product.id }}"> Add to Cart </button> 
+<div class="add_to_cart">
+  {% for variant in product.variants %}
+    <input type="hidden" id="getvariantid" value="{{ variant.id }}">
+  {% endfor %}
+  <button type="button" name="btn" id="collection-cart-{{ product.id }}">Add to Cart</button>
 </div>
 
-
-
 <script>
-
-$(document).on('click', '#collection-cart-{{ product.id }}' , function(){
-  let getvariantid = $(this).parents('.add_to_cart').find('#getvariantid').val(); 
-  // alert(getvariantid);
-   let formdata = {
+  $(document).on('click', '#collection-cart-{{ product.id }}', function () {
+    let getvariantid = $(this).parents('.add_to_cart').find('#getvariantid').val();
+    // alert(getvariantid);
+    let formdata = {
       // items: [{
       //   id: getvariantid,
       //   quantity: 1  // You can modify the quantity as needed
       // }]
       id: getvariantid,
-     quantity: 1  // You can modify the quantity as needed
+      quantity: 1, // You can modify the quantity as needed
     };
-    
+
     // Perform the AJAX request to add the item to the cart
     $.ajax({
       type: 'POST',
       url: '/cart/add.js',
       data: formdata,
       dataType: 'json',
-      success: function(data) {
-        console.log('Item added to cart:', data);
-        
+      success: function (data) {
+        console.log('Item added to cart:', success);
+
         // Optionally, update cart UI here, such as showing a mini-cart, updating cart counter, etc.
         alert('Item added to cart successfully!');
+        $('cart-drawer').removeClass('is-empty');
+        $('.drawer__inner-empty').hide();
+        $('cart-drawer').load(location.href + ' #CartDrawer');
       },
-      error: function(xhr, status, error) {
+      error: function (xhr, status, error) {
         // Handle errors here
         console.log('Error adding to cart:', error);
         alert('There was an error adding the item to the cart. Please try again.');
-      }
+      },
     });
-});
-  
+  });
 </script>
