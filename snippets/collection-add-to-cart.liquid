@@ -1,8 +1,16 @@
+{% assign available = product.selected_or_first_available_variant.available %}
 <div class="add_to_cart">
   {% for variant in product.variants %}
      <input type ="hidden" id="getvariantid" value={{ variant.id }}>
      {% endfor %}
-    <button type="button" name="btn" id="collection-cart-{{ product.id }}"> Add to Cart </button> 
+ 
+    <button type="button" name="btn" id="collection-cart-{{ product.id }}"> 
+          {% if available == true %}
+              add to cart 
+            {% else %}
+               Sold Out
+            {% endif %}
+      </button> 
 </div>
 
 
