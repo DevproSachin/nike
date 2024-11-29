@@ -32,10 +32,8 @@ let formdata = {
      console.log('Item added to cart:', data);
      
      // Optionally, update cart UI here, such as showing a mini-cart, updating cart counter, etc.
-     alert('Item added to cart successfully!');
-    setTimeout(function() {
-    $('#cart-icon-bubble').click();
-  }, 300); 
+    // alert('Item added to cart successfully!');
+    $('#cart-icon-bubble').click(); 
      $('cart-drawer').removeClass('is-empty');
       $('.drawer__inner-empty').hide();
      $('cart-drawer').load(location.href + " #CartDrawer");
