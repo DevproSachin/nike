@@ -205,7 +205,7 @@
             {%- endif -%}
 
             {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
-              <div class="price-per-item__container">
+              <div class="price-per-item__container card_product">
                     <quantity-input class="quantity" data-url="{{ product.url }}" data-section="{{ product.id }}">
                       <button class="quantity__button" name="minus" type="button">
                         <span class="visually-hidden">
