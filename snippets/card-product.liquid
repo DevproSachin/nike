@@ -206,7 +206,7 @@
 
             {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
               <div class="price-per-item__container">
-                    <quantity-input class="quantity" data-url="{{ product.url }}" data-section="{{ section.id }}">
+                    <quantity-input class="quantity" data-url="{{ product.url }}" data-section="{{ product.id }}">
                       <button class="quantity__button" name="minus" type="button">
                         <span class="visually-hidden">
                           {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}
@@ -219,7 +219,7 @@
                         class="quantity__input"
                         type="number"
                         name="quantity"
-                        id="Quantity-{{ section.id }}"
+                        id="Quantity-{{ product.id }}"
                         data-cart-quantity="{{ cart_qty }}"
                         data-min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
                         min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
